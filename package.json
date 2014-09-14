@@ -1,3 +1,12 @@
 {
-	"name": "qrcoder"
+	"name": "qrcoder",
+	"devDependencies": {
+		"express": "*",
+		"browserify": "4.2.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/9sharp/qrcoder.git"
+	},
+	"license": "MIT"
 }
