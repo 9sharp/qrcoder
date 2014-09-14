@@ -3,7 +3,7 @@ qrcoder
 
 Encode/Decode image with QR code.
 
-== Development
+## Development
 
 Install the dependencies.
 ```bash
