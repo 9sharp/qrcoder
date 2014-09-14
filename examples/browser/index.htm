@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <canvas id="myCanvas" width="578" height="400"></canvas>
+    <script src="/lib/index.js"></script>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImageObj, 0, 0);
+      }
+      imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+
+      function encode() {
+        qrcoder.encodeQR(context.getImageData(0, 0, canvas.width, canvas.height), 0, 0)
+      }
+
+      function decode() {
+        qrcoder.decodeQR(context.getImageData(0, 0, canvas.width, canvas.height), 0, 0)
+      }
+    </script>
+    <button type="button" onclick="encode()">Encode</button>
+    <button type="button" onclick="decode()">Decode</button>
+  </body>
+</html>

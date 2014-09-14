@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <canvas id="myCanvas" width="512" height="512"></canvas>
+    <script src="/js/qrcoder.js"></script>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        context.drawImage(imageObj, 0, 0);
+      }
+      imageObj.src = '/assets/lena.jpg';
+
+      function encode() {
+        imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        imageData = qrcoder.encodeQR(imageData);
+        context.putImageData(imageData, 0, 0);
+      }
+
+      function decode() {
+        imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        imageData = qrcoder.decodeQR(imageData);
+        context.putImageData(imageData, 0, 0);
+      }
+    </script><p/>
+    <button type="button" onclick="encode()">Encode</button>
+    <button type="button" onclick="decode()">Decode</button>
+  </body>
+</html>
