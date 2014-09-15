@@ -1,22 +1,32 @@
-/*global qrcoder*/
+/*global qrcoder, jic*/
 
-var canvas = document.getElementById('myCanvas');
-var context = canvas.getContext('2d');
-var imageObj = new Image();
+var srcCanvas = document.getElementById('srcCanvas');
+var tarCanvas = document.getElementById('tarCanvas');
+var srcImage = new Image();
+var cmpImage = new Image();
+var qrImage = new Image();
+var tarImage = new Image();
 
-imageObj.onload = function() {
-  context.drawImage(imageObj, 0, 0);
+cmpImage.onload = function() {
+    qrImage.src = qrcoder.encodeQR(cmpImage.src);
 };
-imageObj.src = '/assets/image/lena.jpg';
+
+tarImage.onload = function() {
+    tarCanvas.getContext('2d').drawImage(tarImage, 0, 0);
+};
+
+srcImage.onload = function() {
+    srcCanvas.getContext('2d').drawImage(srcImage, 0, 0);
+    var quality = 10.0;
+    cmpImage.src = srcCanvas.toDataURL('image/jpeg', quality/100);
+};
+
+srcImage.src = '/assets/image/lena.jpg';
 
 function encode() {
-  var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  imageData = qrcoder.encodeQR(imageData);
-  context.putImageData(imageData, 0, 0);
+    tarImage.src = qrImage.src;
 }
 
 function decode() {
-  var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  imageData = qrcoder.decodeQR(imageData);
-  context.putImageData(imageData, 0, 0);
+    tarImage.src = qrcoder.decodeQR(qrImage.src);
 }
