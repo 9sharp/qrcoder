@@ -10,17 +10,17 @@
 
       imageObj.onload = function() {
         context.drawImage(imageObj, 0, 0);
-      }
+      };
       imageObj.src = '/assets/lena.jpg';
 
       function encode() {
-        imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
         imageData = qrcoder.encodeQR(imageData);
         context.putImageData(imageData, 0, 0);
       }
 
       function decode() {
-        imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
         imageData = qrcoder.decodeQR(imageData);
         context.putImageData(imageData, 0, 0);
       }
