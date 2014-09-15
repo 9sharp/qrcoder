@@ -1,7 +1,6 @@
 /*jslint node: true */
 
-module.exports.encodeQR = encodeQR;
-module.exports.decodeQR = decodeQR;
+var qrcoder = module.exports = {};
 
 // ImageData ref: https://developer.mozilla.org/en-US/docs/Web/API/ImageData
 
@@ -29,9 +28,9 @@ function invImage(imageData) {
  * @return {ImageData} encoded image
  */
 
-function encodeQR(imageData) {
+qrcoder.encodeQR = function(imageData) {
 	return invImage(imageData);
-}
+};
 
 /**
  * Decode an image from QR code.
@@ -40,6 +39,6 @@ function encodeQR(imageData) {
  * @return {ImageData} decoded image
  */
 
-function decodeQR(imageData) {
+qrcoder.decodeQR = function(imageData) {
 	return invImage(imageData);
-}
+};
