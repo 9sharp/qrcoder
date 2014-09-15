@@ -1,3 +1,5 @@
+/*jslint node: true */
+
 var express = require('express');
 var app = express();
 
