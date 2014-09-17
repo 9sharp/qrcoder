@@ -12,12 +12,12 @@ cmpImage.onload = function() {
 };
 
 tarImage.onload = function() {
-    tarCanvas.getContext('2d').drawImage(tarImage, 0, 0);
+    tarCanvas.getContext('2d').drawImage(tarImage, 0, 0, 512, 512);
 };
 
 srcImage.onload = function() {
     srcCanvas.getContext('2d').drawImage(srcImage, 0, 0);
-    var quality = 10.0;
+    var quality = 20.0;
     cmpImage.src = srcCanvas.toDataURL('image/jpeg', quality/100);
 };
 
