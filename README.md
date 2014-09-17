@@ -13,6 +13,12 @@ Install the dependencies.
 $ npm install
 ```
 
+> In case you failed installing cairo, please read the follow links for help
+>
+> - Ubuntu: http://askubuntu.com/questions/108662/how-to-install-cairo-1-8-10
+> - Mac OSX: https://github.com/Automattic/node-canvas/wiki/Installation---OSX
+
+
 ### Test your code
 
 Run jshint test tasks
@@ -38,10 +44,3 @@ $ grunt dist
 ```
 
 It will update the dist folder and docs folder.
-
-## References
-
-In case you failed installing cairo, please read the follow links for help
-
-- Ubuntu: http://askubuntu.com/questions/108662/how-to-install-cairo-1-8-10
-- Mac OSX: https://github.com/Automattic/node-canvas/wiki/Installation---OSX
