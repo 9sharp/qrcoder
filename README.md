@@ -18,7 +18,6 @@ $ npm install
 > - Ubuntu: http://askubuntu.com/questions/108662/how-to-install-cairo-1-8-10
 > - Mac OSX: https://github.com/Automattic/node-canvas/wiki/Installation---OSX
 
-
 ### Test your code
 
 Run jshint test tasks
