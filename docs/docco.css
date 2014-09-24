@@ -104,6 +104,7 @@ pre, tt, code {
       background: transparent;
     }
 
+
 blockquote {
   border-left: 5px solid #ccc;
   margin: 0;
@@ -136,6 +137,7 @@ ul.sections > li > div {
   -khtml-box-sizing: border-box;  /* konqueror */
   box-sizing: border-box;         /* css3 */
 }
+
 
 /*---------------------- Jump Page -----------------------------*/
 #jump_to, #jump_page {
@@ -249,6 +251,7 @@ ul.sections > li > div {
     margin: 0 0 15px;
   }
 
+
   #jump_to {
     padding: 5px 10px;
   }
@@ -268,6 +271,8 @@ ul.sections > li > div {
   #jump_to a.small {
     display: none;
   }
+
+
 
   #background {
     position: absolute;
