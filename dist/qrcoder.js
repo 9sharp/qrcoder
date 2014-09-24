@@ -1,44 +1,45 @@
 /*jslint node: true */
 
-var qrcoder = module.exports = {};
+var qrcoder = {};
+var isNodeMode = false;
 
-// ImageData ref: https://developer.mozilla.org/en-US/docs/Web/API/ImageData
+if (typeof module !== 'undefined') {
+    isNodeMode = true;
+}
 
-// invert color. for development only.
-function invImage(imageData) {
-	var data = imageData.data;
-	for (var i = 0; i < data.length; i += 4) {
-		// red
-		data[i] = 255 - data[i];
-		// green
-		data[i + 1] = 255 - data[i + 1];
-		// blue
-		data[i + 2] = 255 - data[i + 2];
-		// alpha
-		// No changes to alpha. Leave it here as document of imagedata.
-		data[i + 3] = data[i + 3];
-	}
-	return imageData;
+if (isNodeMode === true) {
+    qrcoder = module.exports = {};
+    var qr = require('qr-js');
 }
 
 /**
  * Encode an image to QR code.
+ * Base64 String, JPEG formated.
  *
- * @param {ImageData} image to be encoded
- * @return {ImageData} encoded image
+ * @param {imageStr} image to be encoded
+ * @return {qrStr} encoded image
  */
 
-qrcoder.encodeQR = function(imageData) {
-	return invImage(imageData);
+qrcoder.encodeQR = function(imageStr) {
+    var qrStr = qr.image({
+        size: 8,
+        level: 'M',
+        value: imageStr
+    }).src;
+    return qrStr;
 };
 
 /**
  * Decode an image from QR code.
+ * Base64 String, JPEG formated.
  *
- * @param {ImageData} image to be dncoded
- * @return {ImageData} decoded image
+ * @param {qrStr} image to be decoded
+ * @return {imageStr} decoded image
  */
 
-qrcoder.decodeQR = function(imageData) {
-	return invImage(imageData);
+qrcoder.decodeQR = function(qrStr) {
+    // TODO
+    // Write decoder here...
+    var imageStr = qrStr;
+    return imageStr;
 };

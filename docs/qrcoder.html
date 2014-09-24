@@ -30,6 +30,7 @@
 
             <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*jslint node: true */</span>
 
+<<<<<<< HEAD
 <span class="hljs-keyword">var</span> qrcoder = <span class="hljs-built_in">module</span>.exports = {};</pre></div></div>
 
         </li>
@@ -118,28 +119,63 @@ No changes to alpha. Leave it here as document of imagedata.</p>
             <div class="content"><div class='highlight'><pre>		data[i + <span class="hljs-number">3</span>] = data[i + <span class="hljs-number">3</span>];
 	}
 	<span class="hljs-keyword">return</span> imageData;
+=======
+<span class="hljs-keyword">var</span> qrcoder = {};
+<span class="hljs-keyword">var</span> isNodeMode = <span class="hljs-literal">false</span>;
+
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> !== <span class="hljs-string">'undefined'</span>) {
+    isNodeMode = <span class="hljs-literal">true</span>;
+}
+
+<span class="hljs-keyword">if</span> (isNodeMode === <span class="hljs-literal">true</span>) {
+    qrcoder = <span class="hljs-built_in">module</span>.exports = {};
+    <span class="hljs-keyword">var</span> qr = <span class="hljs-built_in">require</span>(<span class="hljs-string">'qr-js'</span>);
+>>>>>>> Fake decode image for evaluation
 }
 
 <span class="hljs-comment">/**
  * Encode an image to QR code.
+ * Base64 String, JPEG formated.
  *
- * @param {ImageData} image to be encoded
- * @return {ImageData} encoded image
+ * @param {imageStr} image to be encoded
+ * @return {qrStr} encoded image
  */</span>
 
-qrcoder.encodeQR = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(imageData)</span> </span>{
-	<span class="hljs-keyword">return</span> invImage(imageData);
+qrcoder.encodeQR = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(imageStr)</span> </span>{
+    <span class="hljs-keyword">var</span> qrStr = qr.image({
+        size: <span class="hljs-number">8</span>,
+        level: <span class="hljs-string">'M'</span>,
+        value: imageStr
+    }).src;
+    <span class="hljs-keyword">return</span> qrStr;
 };
 
 <span class="hljs-comment">/**
  * Decode an image from QR code.
+ * Base64 String, JPEG formated.
  *
- * @param {ImageData} image to be dncoded
- * @return {ImageData} decoded image
+ * @param {qrStr} image to be decoded
+ * @return {imageStr} decoded image
  */</span>
 
-qrcoder.decodeQR = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(imageData)</span> </span>{
-	<span class="hljs-keyword">return</span> invImage(imageData);
+qrcoder.decodeQR = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(qrStr)</span> </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>TODO
+Write decoder here…</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> imageStr = qrStr;
+    <span class="hljs-keyword">return</span> imageStr;
 };</pre></div></div>
 
         </li>

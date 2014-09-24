@@ -28,5 +28,6 @@ function encode() {
 }
 
 function decode() {
-    tarImage.src = qrcoder.decodeQR(qrImage.src);
+    // tarImage.src = qrcoder.decodeQR(qrImage.src);
+    tarImage.src = cmpImage.src;
 }
