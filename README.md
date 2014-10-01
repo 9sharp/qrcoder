@@ -20,7 +20,7 @@ $ npm install
 
 ### Test your code
 
-Run jshint test tasks
+Run jshint and functional test tasks
 
 ```bash
 $ grunt test
