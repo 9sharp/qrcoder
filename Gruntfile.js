@@ -24,6 +24,14 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       }
     },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/*.js']
+      }
+    },
     uglify: {
       all: {
         files: {
@@ -83,9 +91,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-docco');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-open');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
-  grunt.registerTask('default', [ 'test' ]);
-  grunt.registerTask('dist', [ 'test', 'copy:dist', 'uglify', 'docco' ]);
-  grunt.registerTask('test', [ 'jshint' ]);
+  grunt.registerTask('default', ['test']);
+  grunt.registerTask('dist', ['test', 'copy:dist', 'uglify', 'docco']);
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
   grunt.registerTask('server', ['express', 'open', 'watch', 'express-keepalive']);
 };

@@ -8,8 +8,9 @@ if (typeof module !== 'undefined') {
 }
 
 if (isNodeMode === true) {
-    qrcoder = module.exports = {};
-    var qr = require('qr-js');
+    module.exports = qrcoder;
+    var qr = require('qr-encode');
+    var qrdecoder = require('node-zxing')({});
 }
 
 /**
@@ -21,11 +22,11 @@ if (isNodeMode === true) {
  */
 
 qrcoder.encodeQR = function(imageStr) {
-    var qrStr = qr.image({
-        size: 8,
-        level: 'M',
-        value: imageStr
-    }).src;
+    var qrStr = qr(imageStr, {
+            type: 40,
+            size: 4,
+            level: 'L'
+        });
     return qrStr;
 };
 
@@ -33,13 +34,10 @@ qrcoder.encodeQR = function(imageStr) {
  * Decode an image from QR code.
  * Base64 String, JPEG formated.
  *
- * @param {qrStr} image to be decoded
- * @return {imageStr} decoded image
+ * @param {path} image path to be decoded
+ * @param {callback}
  */
 
-qrcoder.decodeQR = function(qrStr) {
-    // TODO
-    // Write decoder here...
-    var imageStr = qrStr;
-    return imageStr;
+qrcoder.decodeQR = function(path, callback) {
+    qrdecoder.decode(path, callback);
 };
