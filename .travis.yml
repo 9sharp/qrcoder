@@ -5,4 +5,4 @@ before_install:
   - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
   - npm install -g grunt-cli
 install: npm install
-before_script: grunt build
+before_script: grunt dist
