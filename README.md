@@ -1,6 +1,8 @@
 qrcoder
 =======
 
+[![Build Status](https://travis-ci.org/9sharp/qrcoder.svg?branch=master)](https://travis-ci.org/9sharp/qrcoder)
+
 Encode/Decode image with QR code.
 
 ## Development
